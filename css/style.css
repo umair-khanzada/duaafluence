@@ -83,7 +83,7 @@
     line-height: 0;
 }
 
-.icon-box-primary::before,
+/* .icon-box-primary::before,
 .icon-box-light::before {
     position: absolute;
     content: "";
@@ -94,7 +94,7 @@
     border-radius: 35px;
     transition: .5s;
     z-index: -1;
-}
+} */
 
 .icon-box-primary::before {
     background: var(--bs-primary);
