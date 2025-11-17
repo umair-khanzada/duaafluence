@@ -24,7 +24,7 @@ export class MemStorage implements IStorage {
   constructor() {
     this.users = new Map();
     this.contactSubmissions = new Map();
-    this.loadFromExcel();
+    // this.loadFromExcel();
   }
 
   private loadFromExcel() {
@@ -98,7 +98,7 @@ export class MemStorage implements IStorage {
       submittedAt: new Date(),
     };
     this.contactSubmissions.set(id, submission);
-    this.saveToExcel();
+    // this.saveToExcel();
     return submission;
   }
 
