@@ -1,13 +1,13 @@
 import { type User, type InsertUser, type ContactSubmission, type InsertContactSubmission } from "@shared/schema";
 import { randomUUID } from "crypto";
 // Use ESM build of xlsx and set fs for Node environment
-import XLSX from "xlsx";
-import * as fs from "fs";
-import * as path from "path";
-import { fileURLToPath } from "url";
+// import XLSX from "xlsx";
+// import * as fs from "fs";
+// import * as path from "path";
+// import { fileURLToPath } from "url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const EXCEL_FILE = path.join(__dirname, "contact_submissions.xlsx");
+// const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// const EXCEL_FILE = path.join(__dirname, "contact_submissions.xlsx");
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -27,51 +27,51 @@ export class MemStorage implements IStorage {
     // this.loadFromExcel();
   }
 
-  private loadFromExcel() {
-    try {
-      if (!fs.existsSync(EXCEL_FILE)) return;
+  // private loadFromExcel() {
+  //   try {
+  //     if (!fs.existsSync(EXCEL_FILE)) return;
 
-      const buf = fs.readFileSync(EXCEL_FILE);
-      const workbook = XLSX.read(buf, { type: "buffer" });
+  //     const buf = fs.readFileSync(EXCEL_FILE);
+  //     const workbook = XLSX.read(buf, { type: "buffer" });
 
-      const sheet = workbook.Sheets["Contact Submissions"];
-      if (!sheet) return;
-      const data = XLSX.utils.sheet_to_json<Record<string, any>>(sheet);
-      data.forEach((row: Record<string, any>) => {
-        if (row.id && row.email && row.name && row.projectIdea) {
-          const submission: ContactSubmission = {
-            id: row.id,
-            name: row.name,
-            email: row.email,
-            projectIdea: row.projectIdea,
-            submittedAt: new Date(row.submittedAt),
-          };
-          this.contactSubmissions.set(row.id, submission);
-        }
-      });
-    } catch (error) {
-      console.error("Error loading contact submissions from Excel:", error);
-    }
-  }
+  //     const sheet = workbook.Sheets["Contact Submissions"];
+  //     if (!sheet) return;
+  //     const data = XLSX.utils.sheet_to_json<Record<string, any>>(sheet);
+  //     data.forEach((row: Record<string, any>) => {
+  //       if (row.id && row.email && row.name && row.projectIdea) {
+  //         const submission: ContactSubmission = {
+  //           id: row.id,
+  //           name: row.name,
+  //           email: row.email,
+  //           projectIdea: row.projectIdea,
+  //           submittedAt: new Date(row.submittedAt),
+  //         };
+  //         this.contactSubmissions.set(row.id, submission);
+  //       }
+  //     });
+  //   } catch (error) {
+  //     console.error("Error loading contact submissions from Excel:", error);
+  //   }
+  // }
 
-  private saveToExcel() {
-    try {
-      const data = Array.from(this.contactSubmissions.values()).map((submission) => ({
-        id: submission.id,
-        name: submission.name,
-        email: submission.email,
-        projectIdea: submission.projectIdea,
-        submittedAt: submission.submittedAt.toISOString(),
-      }));
+  // private saveToExcel() {
+  //   try {
+  //     const data = Array.from(this.contactSubmissions.values()).map((submission) => ({
+  //       id: submission.id,
+  //       name: submission.name,
+  //       email: submission.email,
+  //       projectIdea: submission.projectIdea,
+  //       submittedAt: submission.submittedAt.toISOString(),
+  //     }));
 
-      const workbook = XLSX.utils.book_new();
-      const sheet = XLSX.utils.json_to_sheet(data);
-      XLSX.utils.book_append_sheet(workbook, sheet, "Contact Submissions");
-      XLSX.writeFile(workbook, EXCEL_FILE);
-    } catch (error) {
-      console.error("Error saving contact submissions to Excel:", error);
-    }
-  }
+  //     const workbook = XLSX.utils.book_new();
+  //     const sheet = XLSX.utils.json_to_sheet(data);
+  //     XLSX.utils.book_append_sheet(workbook, sheet, "Contact Submissions");
+  //     XLSX.writeFile(workbook, EXCEL_FILE);
+  //   } catch (error) {
+  //     console.error("Error saving contact submissions to Excel:", error);
+  //   }
+  // }
 
   async getUser(id: string): Promise<User | undefined> {
     return this.users.get(id);
