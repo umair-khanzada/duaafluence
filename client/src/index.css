@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+  --opaque-button-border-intensity: -10;
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .07);
+
+  --background: 0 0% 100%;
+  --foreground: 0 0% 12%;
+  --border: 210 15% 88%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 12%;
+  --card-border: 210 10% 93%;
+  --sidebar: 210 8% 95%;
+  --sidebar-foreground: 210 20% 12%;
+  --sidebar-border: 210 12% 91%;
+  --sidebar-primary: 211 100% 50%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 211 52% 93%;
+  --sidebar-accent-foreground: 211 100% 50%;
+  --sidebar-ring: 211 100% 50%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 12%;
+  --popover-border: 210 12% 94%;
+  --primary: 211 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 8% 92%;
+  --muted-foreground: 210 15% 35%;
+  --accent: 165 100% 39%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 356 91% 54%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 210 15% 85%;
+  --ring: 211 100% 50%;
+  --chart-1: 211 100% 50%;
+  --chart-2: 165 100% 39%;
+  --chart-3: 42 93% 56%;
+  --chart-4: 147 79% 42%;
+  --chart-5: 341 75% 51%;
+
+  --font-sans: Inter, Poppins, Montserrat, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 1.3rem;
+  --shadow-2xs: 0px 1px 2px 0px hsl(210 15% 12% / 0.05);
+  --shadow-xs: 0px 1px 3px 0px hsl(210 15% 12% / 0.08);
+  --shadow-sm: 0px 2px 4px -1px hsl(210 15% 12% / 0.06), 0px 1px 2px -1px hsl(210 15% 12% / 0.04);
+  --shadow: 0px 4px 6px -1px hsl(210 15% 12% / 0.08), 0px 2px 4px -1px hsl(210 15% 12% / 0.05);
+  --shadow-md: 0px 6px 12px -2px hsl(210 15% 12% / 0.10), 0px 3px 6px -2px hsl(210 15% 12% / 0.06);
+  --shadow-lg: 0px 10px 20px -4px hsl(210 15% 12% / 0.12), 0px 4px 8px -2px hsl(210 15% 12% / 0.08);
+  --shadow-xl: 0px 20px 40px -8px hsl(210 15% 12% / 0.14), 0px 8px 16px -4px hsl(210 15% 12% / 0.10);
+  --shadow-2xl: 0px 30px 60px -12px hsl(210 15% 12% / 0.18);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  --primary-border: hsl(from var(--primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from var(--secondary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from var(--muted) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from var(--accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from var(--destructive) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-primary-border: hsl(from var(--sidebar-primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from var(--sidebar-accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 8;
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 210 5% 8%;
+  --foreground: 210 8% 92%;
+  --border: 210 8% 16%;
+  --card: 210 6% 11%;
+  --card-foreground: 210 8% 88%;
+  --card-border: 210 8% 14%;
+  --sidebar: 210 7% 13%;
+  --sidebar-foreground: 210 8% 88%;
+  --sidebar-border: 210 8% 17%;
+  --sidebar-primary: 203 88% 53%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 205 70% 8%;
+  --sidebar-accent-foreground: 203 88% 53%;
+  --sidebar-ring: 203 88% 53%;
+  --popover: 210 6% 10%;
+  --popover-foreground: 210 8% 92%;
+  --popover-border: 210 8% 14%;
+  --primary: 203 88% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 8% 18%;
+  --secondary-foreground: 210 8% 92%;
+  --muted: 210 6% 14%;
+  --muted-foreground: 210 8% 55%;
+  --accent: 205 15% 16%;
+  --accent-foreground: 203 88% 58%;
+  --destructive: 356 91% 54%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 210 10% 22%;
+  --ring: 203 88% 53%;
+  --chart-1: 203 88% 65%;
+  --chart-2: 160 85% 55%;
+  --chart-3: 42 93% 65%;
+  --chart-4: 147 70% 58%;
+  --chart-5: 341 75% 65%;
+
+  --font-sans: Inter, Poppins, Open Sans, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 1.3rem;
+  --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.20);
+  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
+  --shadow-sm: 0px 2px 4px -1px hsl(0 0% 0% / 0.20), 0px 1px 2px -1px hsl(0 0% 0% / 0.15);
+  --shadow: 0px 4px 6px -1px hsl(0 0% 0% / 0.25), 0px 2px 4px -1px hsl(0 0% 0% / 0.18);
+  --shadow-md: 0px 6px 12px -2px hsl(0 0% 0% / 0.30), 0px 3px 6px -2px hsl(0 0% 0% / 0.20);
+  --shadow-lg: 0px 10px 20px -4px hsl(0 0% 0% / 0.35), 0px 4px 8px -2px hsl(0 0% 0% / 0.25);
+  --shadow-xl: 0px 20px 40px -8px hsl(0 0% 0% / 0.40), 0px 8px 16px -4px hsl(0 0% 0% / 0.30);
+  --shadow-2xl: 0px 30px 60px -12px hsl(0 0% 0% / 0.50);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  --primary-border: hsl(from var(--primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from var(--secondary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from var(--muted) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from var(--accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from var(--destructive) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-primary-border: hsl(from var(--sidebar-primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from var(--sidebar-accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+  
+  .gradient-primary-reverse {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
+  }
+  
+  .gradient-vibrant {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3), 0 0 40px hsl(var(--accent) / 0.1);
+  }
+}
